@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box_url = "http://cloudfront.siilicloud.com/knomebasebox.box"
 
-  # config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   # config.vm.network :private_network, ip: "192.168.33.10"
 
@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.ssh.forward_agent = true
 
-  #config.vm.synced_folder "lccsrc", "/lcc", :create => true
+  config.vm.synced_folder "lccsrc", "/lcc", :create => true
 
   config.vm.provider :virtualbox do |vb|
   #   # Don't boot with headless mode
@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "mongodb::10gen_repo"
     chef.add_recipe "mongodb"
     chef.add_recipe "lcc"
-    chef.add_recipe "npm"
+  #  chef.add_recipe "npm"
   #   chef.add_role "web"
   #
   #   # You may also specify custom JSON attributes:
