@@ -10,6 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://cloudfront.siilicloud.com/knomebasebox.box"
 
   config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 27017, host: 27017
 
   # config.vm.network :private_network, ip: "192.168.33.10"
 
